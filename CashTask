@@ -1,0 +1,33 @@
+#import <cs50.h>
+#import <stdio.h>
+#include <math.h>
+int greedy_algorithm (float dollars);
+int main(void)
+{
+    while(true)
+    {
+        float dollars = get_float("dollars");
+        if(dollars > 0)
+        {
+            greedy_algorithm(dollars);
+            break;
+        }
+    }
+}
+
+int greedy_algorithm (float dollars)
+{
+        
+    int cents = round(dollars*100);
+    int a1 = cents / 25;
+    int a2 = cents % 25;
+    int b1 = a2/10;
+    int b2 = a2%10;
+    int c1 = b2/5;
+    int c2 = b2%5;
+    int d1 = c2;
+    int toplam=b1+c1+d1+a1;
+    printf("%i",toplam);
+
+    return 1;
+}
