@@ -6,7 +6,6 @@
 -Credit Task
 -Caesar Task
 -Vigenere Task
--Crack Task
 -Whodunit Task
 -Resize Task
 -Resize Advanced Task
