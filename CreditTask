@@ -1,0 +1,151 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <math.h>
+
+int digit_number(long numb);
+int make_array(long numb);
+
+
+int main (void)
+{
+    //KULLANICI GİRİŞİ YAPILIYOR//
+    long numb = get_long("ID giriniz..");
+    //printf("ID'niz %i basamakldır.\n",digit_number(numb));
+    make_array(numb);
+    
+    
+}
+
+
+// BASAMAK SAYISI BULMAK İÇİN KULLANILIYOR //
+int digit_number(long numb)
+{
+    int digit = 0;
+    while(numb>0)
+    {
+        numb=numb/10;
+        digit=digit+1;
+    }
+    return digit;
+}
+
+
+//GİRİLEN ID ARRAYE DÖNÜŞTÜRÜLMEYE ÇALIŞILIYOR//
+int make_array(long numb)
+{
+    int x = digit_number(numb);
+    int x1 = digit_number(numb);
+    int arr[x];
+    int arr_m[x];
+    for (int i = x-1 ; 0<=i ; i--)
+    {
+        int ad_num = numb % 10;
+        arr[i] = ad_num;
+        arr_m[i] = ad_num;
+        numb = numb/10;
+    }
+       for (int z=0 ; z<x ; z++)
+    {
+       // printf("Elemanlar: %i\n",arr [z]);
+    }
+     
+     
+    int sum = 0;
+    for (int i = x-2 ; 0<=i ; i=i-2)
+    {   
+        arr_m[i] = arr[i]*2;
+       // sum = arr[i]*2/10+arr[i]*2%10+sum;
+        //printf("toplam %i",sum);
+    }
+     for (int i = x-1 ; 0<=i ; i--)
+     {
+         sum = sum + arr_m[i]/10+arr_m[i]%10;
+         
+     }
+     //printf("sum: %i\n",sum);
+     
+     
+     //printf("Kalan: %i\n",sum%10);
+     //printf("x1: %i\n",x1);
+
+
+     
+     if(sum%10==0)
+     {
+             if(x1==13&&arr[0]==4)
+         {
+             printf("VISA\n");
+         }
+            else if(x1==16&&arr[0]==4)
+         {
+             printf("VISA\n");
+         }
+            else if(x1==15)
+            {
+                if(arr[0]+arr[1]==7)
+            {
+                printf("AMEX\n");
+            }
+                if(arr[0]+arr[1]==10)
+                {
+                printf("AMEX\n");
+            }
+                else
+                printf("INVALID\n");
+            }
+         
+            else if(x1==16)
+         {
+             if(arr[0]+arr[1]==6)
+             { 
+                 printf("MASTERCARD\n");
+             }
+             else if(arr[0]+arr[1]==7)
+             { 
+                 printf("MASTERCARD\n");
+             }
+             else if(arr[0]+arr[1]==8)
+             { 
+                 printf("MASTERCARD\n");
+             }
+             else if(arr[0]+arr[1]==9)
+             { 
+                 printf("MASTERCARD\n");
+             }
+             else if(arr[0]+arr[1]==10)
+             { 
+                 printf("MASTERCARD\n");
+             }
+             else
+             printf("INVALID\n");
+
+            // printf("MASTERCARD\n");
+           //  printf("%i",arr[0]);
+           //  printf("x1: %i\n",x1);
+           //printf("sum: %i\n",sum);
+         }
+             else
+         {
+             printf("INVALID\n");
+             //printf("%i\n",arr[0]);
+             //printf("x1: %i\n",x1);
+             
+         }
+                  
+     }
+     else //(sum%10==0)
+     {
+         printf("INVALID\n");
+         //printf("%i",arr[0]);
+     }
+     //else 
+    // {
+        // printf("ALLAHINI SİKEYİM\n");
+        // }
+
+    return 1;    
+}
+
+   
+
+
