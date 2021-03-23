@@ -1,0 +1,42 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int ladder_creator(int x);
+
+int main(void)
+{
+    while (true)
+    {
+        int x = get_int("asda");
+        if (0<x && x<9)
+        {
+            ladder_creator(x);
+            break;
+        }
+        
+    }
+    
+}
+
+int ladder_creator(int x)
+{
+    for (int y=0 ; y<x ; y++ )
+    {
+        for(int k=x-y-1 ; 1<=k ; k--)
+        {
+            printf(" ");
+        }
+
+        for(int z=0 ; z<=y ; z++)
+        {
+            printf("#");
+        }
+        printf("  ");
+        for(int z=0 ; z<=y ; z++)
+        {
+            printf("#");
+        }
+        printf("\n");
+    }
+    return 1;
+}
