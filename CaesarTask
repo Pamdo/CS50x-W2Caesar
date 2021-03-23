@@ -1,0 +1,46 @@
+#include <string.h>
+#include <ctype.h>
+#include <cs50.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+int main(int argc, string argv[])
+{
+    if (argc == 2 && isdigit(*argv[1]))
+    {
+        int key = atoi(argv[1]);
+        string massage = get_string("plaintext: ");
+        printf("ciphertext: ");
+
+        for (int i = 0, n = strlen(massage) ; i<n ; i++)
+        {
+            if('a'<=massage[i]&&massage[i]<='z')
+            {
+                printf("%c",((massage[i]-'a')+key)%26+'a');
+            }
+            else if('A'<=massage[i]&&massage[i]<='Z')
+            {
+                printf("%c",((massage[i]-'A')+key)%26+'A');
+            }
+            else
+            {
+                printf("%c",massage[i]);
+            }
+            
+        }
+
+    printf("\n");
+    return 0;
+
+
+
+    }
+    else
+    {
+        printf("Usage ./caesar KEY\n");
+    }
+
+return 1;
+
+}
+
